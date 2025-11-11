@@ -1,0 +1,17 @@
+:root{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  display: flex;
+  width: 100vw;
+}
+
+.menu-form{
+  width: 50%;
+}
+
+.menu{
+  width: 50%;
+}
