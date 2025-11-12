@@ -15,3 +15,49 @@
 .menu{
   width: 50%;
 }
+
+.menu-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 10%;
+  margin-top: 10vh;
+}
+
+.form-item{
+  width: 100%;
+  position: relative;
+}
+
+
+.form-label{
+  display: inline-block;
+  width: 30%;
+}
+
+.form-input{
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+}
+
+.form-btn{
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.error{
+  padding-left: 30%;
+  margin-top: 0;
+  color: red;
+}
+
+.required::after{
+  content: "*";
+  position: absolute;
+  top: 5px;
+  color: red;
+}

@@ -2,7 +2,7 @@ const initialValue = {
     id: "",
     label: "",
     icon: "",
-    parent: "",
+    parent: "#",
     link: "",
 }
 
