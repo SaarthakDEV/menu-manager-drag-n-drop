@@ -2,16 +2,16 @@ import { useFormik } from "formik";
 import FormItem from "./FormItem";
 import constant from "../data/constant";
 import menuSchema from "../schema";
-import { getAllParents } from "../utils/helper";
+import { addMenu, getAllParents } from "../utils/helper";
+import useStore from "../store/useStore";
 
 const MenuForm = () => {
+  const { menu } = useStore()
   const { values, touched, errors, handleChange, handleSubmit, setFieldValue } =
     useFormik({
       initialValues: constant.INITIAL_VALUE,
-      validationSchema: menuSchema,
-      onSubmit: (values) => {
-        alert(JSON.stringify(values, null, 2));
-      },
+      validationSchema: menuSchema(menu),
+      onSubmit: (values) => addMenu(values)
     });
 
   const handleLabelChange = (e) => {
@@ -37,6 +37,7 @@ const MenuForm = () => {
         touched={touched.id}
         error={errors.id}
         required
+        className={"hidden"}
       />
       <FormItem
         id={"menu-label"}
@@ -66,7 +67,7 @@ const MenuForm = () => {
         touched={touched.parent}
         error={errors.parent}
         type="dropdown"
-        options={getAllParents()}
+        options={getAllParents(menu)}
         required
       />
       <FormItem

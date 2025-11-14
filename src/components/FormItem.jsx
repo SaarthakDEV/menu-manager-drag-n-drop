@@ -27,16 +27,16 @@ const FormItem = ({
   }, [options]);
 
   return (
-    <div className="form-item">
+    <div className={`form-item ${className}`}>
       {type === "text" ? (
         <>
-          <label className="form-label required" htmlFor={id}>{title}</label>
+          <label className={`form-label ${required && "required "}`} htmlFor={id}>{title}</label>
           <input className="form-input form-text" name={name} id={id} value={value} onChange={changeHandler} />
         </>
       ) : (
         <>
-          <label className="form-label" htmlFor={id}>{title}</label>
-          <select className="form-input form-select"id={id} name={name} value={value} onChange={changeHandler}>
+          <label className={`form-label ${required && "required "}`} htmlFor={id}>{title}</label>
+          <select className="form-input form-text" id={id} name={name} value={value} onChange={changeHandler}>
             {updatedOptions.map((opt, idx) => (
               <option className="form-dropdown" value={opt.id} key={idx + 1}>
                 {opt.label}
