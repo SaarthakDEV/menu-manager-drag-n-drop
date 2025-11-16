@@ -6,12 +6,15 @@ import { addMenu, getAllParents } from "../utils/helper";
 import useStore from "../store/useStore";
 
 const MenuForm = () => {
-  const { menu } = useStore()
+  const { menu, setMenu } = useStore()
   const { values, touched, errors, handleChange, handleSubmit, setFieldValue } =
     useFormik({
       initialValues: constant.INITIAL_VALUE,
       validationSchema: menuSchema(menu),
-      onSubmit: (values) => addMenu(values)
+      onSubmit: (values, { resetForm }) => {
+        addMenu(menu, values, setMenu)
+        resetForm()
+      }
     });
 
   const handleLabelChange = (e) => {

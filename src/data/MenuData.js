@@ -4,22 +4,22 @@ const getMenuData = () => (
             id: "user-management",
             label: "User Management",
             icon: "user",
-            parent: null,
+            parent: "#",
             link: "",
             children: [
                 {
                     id: "authentication",
                     label: "Authentication",
                     icon: "lock",
-                    parent: 0,
-                    children: null,
+                    parent: "user-management",
+                    children: [],
                     link: "",
                 }, {
                     id: "authorization",
                     label: "Authorization",
                     icon: "globe",
-                    parent: 0,
-                    children: null,
+                    parent: "user-management",
+                    children: [],
                     link: "",
                 }
             ]
